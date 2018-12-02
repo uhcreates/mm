@@ -137,8 +137,8 @@ include("pagination/function.php");
                             </div>
                             <div class='p_sub_d'>
                                 <p><?php echo $row["product_label"] ?></p>
-                                <p>REVERSIBLE SEUED THREE QUARTER</p>
-                                <p class='price'><span>INR</span></p>
+                                
+                                <p class='price'><?php echo $row["product_price"] ?><span> INR</span></p>
                             </div>
                         </div>
                         
@@ -158,9 +158,9 @@ include("pagination/function.php");
                         $row = mysqli_fetch_row($rs_result);  
                         $total_records = $row[0];  
                         $total_pages = ceil($total_records / $limit);  
-                        $pagLink = "<div class='pagination'>";  
+                        $pagLink = "<div class='pagination justify-content-center'>";  
                         for ($i=1; $i<=$total_pages; $i++) {  
-                                    $pagLink .= "<a href='products.php?product_cat_id=".$_GET['product_cat_id']."&page=".$i."'>".$i."</a>";  
+                                    $pagLink .= "<a class='page-link' href='products.php?product_cat_id=".$_GET['product_cat_id']."&page=".$i."'>".$i."</a>";  
                         };  
                         echo $pagLink . "</div>";   
                     } 
@@ -174,9 +174,9 @@ include("pagination/function.php");
                             $row = mysqli_fetch_row($run_products);  
                             $total_records = $row[0];  
                             $total_pages = ceil($total_records / $limit);  
-                            $pagLink = "<div class='pagination'>";  
+                            $pagLink = "<div class='pagination justify-content-center'>";  
                             for ($i=1; $i<=$total_pages; $i++) {  
-                                        $pagLink .= "<a href='products.php?user_query=".$user_keyword."&page=".$i."'>".$i."</a>";  
+                                        $pagLink .= "<a class='page-link' href='products.php?user_query=".$user_keyword."&page=".$i."'>".$i."</a>";  
                             };  
                         echo $pagLink . "</div>";  
                     } 
@@ -188,9 +188,9 @@ include("pagination/function.php");
                         $row = mysqli_fetch_row($rs_result);  
                         $total_records = $row[0];  
                         $total_pages = ceil($total_records / $limit);  
-                        $pagLink = "<div class='pagination'>";  
+                        $pagLink = "<div class='pagination justify-content-center'>";  
                         for ($i=1; $i<=$total_pages; $i++) {  
-                                    $pagLink .= "<a href='products.php?page=".$i."'>".$i."</a>";  
+                                    $pagLink .= "<a class='page-link' href='products.php?page=".$i."'>".$i."</a>";  
                         };  
                         echo $pagLink . "</div>";  
                     }
