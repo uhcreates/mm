@@ -86,9 +86,19 @@ include("pagination/function.php");
             <div class="col-sm-10 col-md-10">
                 <div class="row">
                     <?php
+                    // Get Record By Category ID
+                    if(isset($_GET['cat_id'])) {
+                        $cat_id = @$_GET['cat_id'];
+                        $limit = 8;  
+                        if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
+                            $page=1; 
+                        };  
+                        $start_from = ($page-1) * $limit;  
+                        $sql = "SELECT * FROM products where cat_id=".$cat_id." LIMIT $start_from , $limit";  
+                        } 
 
                     // Get Record By Product Category ID
-                    if(isset($_GET['product_cat_id'])) {
+                    else if(isset($_GET['product_cat_id'])) {
                         $product_cat_id = @$_GET['product_cat_id'];
                         $limit = 8;  
                         if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
@@ -157,7 +167,21 @@ include("pagination/function.php");
                     $limit = 8;  
 
                     // Get Record By Product Category ID PAGE
-                    if(isset($_GET['product_cat_id'])) {
+                    if(isset($_GET['cat_id'])) {
+                        $sql = "SELECT COUNT(*) FROM products where cat_id=".$_GET['cat_id'].""; 
+                        $rs_result = mysqli_query($con, $sql);  
+                        $row = mysqli_fetch_row($rs_result);  
+                        $total_records = $row[0];  
+                        $total_pages = ceil($total_records / $limit);  
+                        $pagLink = "<div class='pagination justify-content-center'>";  
+                        for ($i=1; $i<=$total_pages; $i++) {  
+                                    $pagLink .= "<a class='page-link' href='products.php?cat_id=".$_GET['cat_id']."&page=".$i."'>".$i."</a>";  
+                        };  
+                        echo $pagLink . "</div>";   
+                    }
+
+                    // Get Record By Product Category ID PAGE
+                    else if(isset($_GET['product_cat_id'])) {
                         $sql = "SELECT COUNT(product_id) FROM products where p_cat_id=".$_GET['product_cat_id'].""; 
                         $rs_result = mysqli_query($con, $sql);  
                         $row = mysqli_fetch_row($rs_result);  

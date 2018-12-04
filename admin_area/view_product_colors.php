@@ -68,6 +68,7 @@ else {
 
 
 
+
 </tr>
 
 </thead>
@@ -134,11 +135,13 @@ $sample_image = $row_pro['sample_image'];
 
 <a href="index.php?edit_product_colors=<?php echo $id; ?>">
 
-<i class="fa fa-pencil"> </i> Edit
+<i class="fa fa-pencil"> </i> Edit Image
 
 </a>
 
 </td>
+
+
 
 </tr>
 

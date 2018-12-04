@@ -239,7 +239,6 @@ $run_catg_men = mysqli_query($con,$get_catg_men);
 
 while($row_catg_men = mysqli_fetch_array($run_catg_men)) {
 
-
 $catg_men_name = $row_catg_men['catg_men_name'];
 
 $catg_men_img = $row_catg_men['catg_men_img'];
@@ -250,7 +249,7 @@ echo "
 
 
 
-<a href='$catg_men_url'><img src='admin_area/men_images/$catg_men_img' class='img_responsive'></a>
+<a href='$catg_men_url?cat_id=1'><img src='admin_area/men_images/$catg_men_img' class='img_responsive'></a>
 
 
 
@@ -274,8 +273,6 @@ $run_catg_women = mysqli_query($con,$get_catg_women);
 
 while($row_catg_women = mysqli_fetch_array($run_catg_women)) {
 
-                      
-
 $catg_women_name = $row_catg_women['catg_women_name'];
 
 $catg_women_img = $row_catg_women['catg_women_img'];
@@ -286,7 +283,7 @@ echo "
 
 
 
-<a href='$catg_women_url'><img src='admin_area/women_images/$catg_women_img' class='img_responsive'></a>
+<a href='$catg_women_url?cat_id=2'><img src='admin_area/women_images/$catg_women_img' class='img_responsive'></a>
 
 
 
@@ -321,7 +318,7 @@ echo "
 
 
 
-<a href='$catg_business_url'><img src='admin_area/business_images/$catg_business_img' class='img_responsive '></a>
+<a href='$catg_business_url?cat_id=3'><img src='admin_area/business_images/$catg_business_img' class='img_responsive '></a>
 
 
 

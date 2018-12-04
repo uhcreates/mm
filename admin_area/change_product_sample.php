@@ -27,7 +27,7 @@ $id = $row_edit['id'];
 
 $p_id = $row_edit['product_id'];
 
-$image = $row_edit['images'];
+
 
 $sample_image = $row_edit['sample_image'];
 
@@ -109,20 +109,10 @@ if ($('#sample_preview').has('#element').length) {
 
 function preview_image() 
 {
-
-var total_file=document.getElementById("upload_file").files.length;
- if (total_file <= 4) {
     if ($('#image_preview').has('#item').length) {
-        $('#item').replaceWith("");
-        for(var i=0;i<total_file;i++) {
-        $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;");
-
-        } 
-    }
- } else {
-   alert("Maximum 4 files can be uploaded");
-    $("#upload_file").val('');
-
+  $('#item').replaceWith("<img id='item' src='"+URL.createObjectURL(event.target.files[0])+"' ><br>");
+  } else {
+    $('#image_preview').append("<img id='item' src='"+URL.createObjectURL(event.target.files[0])+"' ><br>");
   }
 }
 </script>
@@ -170,6 +160,7 @@ var total_file=document.getElementById("upload_file").files.length;
       <div class="form-group" ><!-- form-group Starts -->
       <label class="col-md-3 control-label" > Select Product </label>
         <div class="col-md-6" >
+            <input type="hidden" name="id" value="<?php echo $id ?>" style="display: block;">
           <select class="form-control" name="product_id"><!-- select product_id Starts -->
             <option value="<?php echo $product_id; ?>">
                 <?php echo $product_title; ?>
@@ -206,7 +197,7 @@ var total_file=document.getElementById("upload_file").files.length;
       <div class="form-group" ><!-- form-group Starts -->
         <label class="col-md-3 control-label" > Select Multiple Images </label>
         <div class="col-md-6" >
-          <input type="file" name="images[]" multiple id="upload_file" onchange="preview_image();" class="form-control" required >
+          <input type="file" name="images[]"  id="upload_file" onchange="preview_image();" class="form-control" required >
         </div>
       </div><!-- form-group Ends -->
       <div id="image_preview" class="col-md-offset-3">
@@ -261,7 +252,7 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
   $images = $_FILES['images']['name'][$i];
   move_uploaded_file($temp_images,"product_images/variety/".$images);
 
-  $update_product_colors = "update product_color set images='$images', sample_image ='$sample_image' where product_id ='$product_id'";
+  $update_product_colors = "update product_color set images='$images' where id ='$id'";
   $run_product_colors = mysqli_query($con,$update_product_colors);
  }
 
