@@ -9,13 +9,49 @@ echo "<script>window.open('login.php','_self')</script>";
 else {
 
 ?>
+
+
+<?php
+
+if(isset($_GET['edit_product_colors'])) {
+
+$edit_color_id = $_GET['edit_product_colors'];
+
+$get_p = "select * from product_color where id='$edit_color_id'"; 
+
+$run_edit = mysqli_query($con,$get_p);
+
+$row_edit = mysqli_fetch_array($run_edit);
+
+$id = $row_edit['id'];
+
+$p_id = $row_edit['product_id'];
+
+$image = $row_edit['images'];
+
+$sample_image = $row_edit['sample_image'];
+
+
+$get_product = "select * from products where product_id='$p_id'";
+
+$run_product = mysqli_query($con,$get_product);
+
+$row_product = mysqli_fetch_array($run_product);
+
+$product_id = $row_product['product_id'];
+
+$product_title = $row_product['product_title'];
+
+}
+
+?>
 <!DOCTYPE html>
 
 <html>
 
 <head>
 
-<title> Insert Product Colors </title>
+<title> Update Product Colors </title>
 <style>
 #sample_preview {
   /* height: 50px;
@@ -73,16 +109,10 @@ if ($('#sample_preview').has('#element').length) {
 
 function preview_image() 
 {
- var total_file=document.getElementById("upload_file").files.length;
- if (total_file <= 4) {
-  for(var i=0;i<total_file;i++)
-    {
-      $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;");
-    }
- } else {
-   alert("Maximum 4 files can be uploaded");
-    $("#upload_file").val('');
-
+    if ($('#image_preview').has('#item').length) {
+  $('#item').replaceWith("<img id='item' src='"+URL.createObjectURL(event.target.files[0])+"' ><br>");
+  } else {
+    $('#image_preview').append("<img id='item' src='"+URL.createObjectURL(event.target.files[0])+"' ><br>");
   }
 }
 </script>
@@ -98,7 +128,7 @@ function preview_image()
 
 <li class="active">
 
-<i class="fa fa-dashboard"> </i> Dashboard / Insert Product Colors
+<i class="fa fa-dashboard"> </i> Dashboard/ Update Product Colors
 
 </li>
 
@@ -119,7 +149,7 @@ function preview_image()
 
 <h3 class="panel-title">
 
-<i class="fa fa-money fa-fw"></i> Insert Product Colorss
+<i class="fa fa-money fa-fw"></i> update Product Colorss
 
 </h3>
 
@@ -131,7 +161,10 @@ function preview_image()
       <label class="col-md-3 control-label" > Select Product </label>
         <div class="col-md-6" >
           <select class="form-control" name="product_id"><!-- select product_id Starts -->
-            <option> Select Product </option>
+            <option value="<?php echo $product_id; ?>">
+                <?php echo $product_title; ?>
+            </option>
+            <!-- <option > Select Product </option> -->
               <?php
 
               $get_products = "select * from products";
@@ -156,16 +189,18 @@ function preview_image()
           <input type="file" name="sample_image" id="upload_sample" onchange="preview_sample();" class="form-control" required >
         </div>
         <div id="sample_preview" class="col-md-2">
+        <img id='element' src='product_images/variety/sample/<?php echo $sample_image ?>' />
         </div>
       </div><!-- form-group Ends -->
       <hr style="border-bottom: 1px solid #3c3c3c;">
       <div class="form-group" ><!-- form-group Starts -->
         <label class="col-md-3 control-label" > Select Multiple Images </label>
         <div class="col-md-6" >
-          <input type="file" name="images[]" multiple  id="upload_file" onchange="preview_image();" class="form-control" required >
+          <input type="file" name="images[]"  id="upload_file" onchange="preview_image();" class="form-control" required >
         </div>
       </div><!-- form-group Ends -->
       <div id="image_preview" class="col-md-offset-3">
+        <img id="item" src="product_images/variety/<?php echo $image ?>"/>
       </div>
 
 
@@ -176,7 +211,7 @@ function preview_image()
 
 <div class="col-md-6" >
 
-<input type="submit" name="submit" value="Insert Product" class="btn btn-primary form-control" >
+<input type="submit" name="update" value="update " class="btn btn-primary form-control" >
 
 </div>
 
@@ -201,9 +236,11 @@ function preview_image()
 
 <?php
 
-if(isset($_POST['submit'])){
 
-$product_id = $_POST['product_id'];
+
+if(isset($_POST['update'])){
+
+$id = $_POST['id'];
 $sample_image = $_FILES['sample_image']['name'];
 $temp_sample = $_FILES['sample_image']['tmp_name'];
 move_uploaded_file($temp_sample,"product_images/variety/sample/".$sample_image);
@@ -214,16 +251,16 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
   $images = $_FILES['images']['name'][$i];
   move_uploaded_file($temp_images,"product_images/variety/".$images);
 
-  $insert_product_colors = "insert into product_color (product_id, images, sample_image) values ('$product_id','$images', '$sample_image')";
-  $run_product_colors = mysqli_query($con,$insert_product_colors);
-}
+  $update_product_colors = "update product_color set images='$images', sample_image='$sample_image' where product_id ='$product_id'";
+  $run_product_colors = mysqli_query($con,$update_product_colors);
+ }
 
 
 
 
 if($run_product_colors){
 
-echo "<script>alert('Product has been inserted successfully')</script>";
+echo "<script>alert('Product image has been updated successfully')</script>";
 
 echo "<script>window.open('index.php?view_product_colors','_self')</script>";
 

@@ -122,6 +122,18 @@ if(isset($_GET['view_product_colors'])){
     
 }
 
+if(isset($_GET['edit_product_colors'])){
+
+    include("edit_product_colors.php");
+    
+}
+
+if(isset($_GET['delete_product_colors'])){
+
+    include("delete_product_colors.php");
+    
+}
+
 if(isset($_GET['insert_discount'])){
 
     include("insert_discount.php");
