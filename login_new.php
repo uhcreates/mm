@@ -97,7 +97,7 @@ if ($gClient->getAccessToken()) {
     ?>
     <div class="container login_container">
         <h1 class="login-txt">Login</h1>
-        <form action="checkout.php" method="post">
+        <form method="post">
             <div class="form-row">
                 <!-- <div class="form-group col-md-12">
                     <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name or Email Address">
