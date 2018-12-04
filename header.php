@@ -54,7 +54,9 @@
                         if(!isset($_SESSION['customer_email'])){
                             echo "<a  class='nav-link' href='login_new.php'> Login </a>";
                         }   else {
-                            echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['first_name'] ."</a>";
+                            // echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['first_name'] ."</a>";
+                            echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['customer_email'] ."</a>";
+
                         }
 
                     ?>
@@ -108,7 +110,7 @@
                 <img src="admin_area/product_images/<?php echo $res['product_img1'] ?>" style="height:100%;" alt="product in basket" />
               </div>
             </div>
-            <div class="col-sm-8" style="padding-bottom: 2%;">
+            <div class="col-sm-6" style="padding-bottom: 2%;">
               <p><?php echo $res['product_title']?></p>
               <!-- <div class="single_pc nav_bas_cl">
                 <a href="#"><span class="c_black"></span></a>
@@ -117,6 +119,11 @@
               </div> -->
               <!-- nav_basket_price -->
               <div class="single_pc nav_bas_cl"><p>PRICE: RS. <?php echo $res['product_price']?>/-</p></div>
+            </div>
+            <div class="col-sm-2">
+            <div style="font-size: 30px; right: 5px; cursor: pointer;">
+                <a style="text-decoration:none;" href="delete_basket_item.php?product_id=<?php echo $row['product_id']?>"><i class="pe-7s-less"></i></a>
+            </div>  
             </div>
             <?php } ?>
             <?php } ?>

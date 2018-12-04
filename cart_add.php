@@ -34,6 +34,7 @@ include("functions/functions.php");
 			}
 		} else {
 			echo "<script>alert('Product already in cart!')</script>";
+			header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 		}
 	

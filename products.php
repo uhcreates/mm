@@ -99,27 +99,31 @@ include("pagination/function.php");
                         } 
                         
                     // Get Record By Search    
-                        else if (isset($_GET['search']) || isset($_GET['user_query'])){
-                            $user_keyword = $_GET['user_query'];
-                            $limit = 8;  
-                        if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
-                            $page=1; 
-                        };  
-                        $start_from = ($page-1) * $limit;  
-                        $sql = "select * from products where status='product' and product_keywords like '%$user_keyword%' LIMIT $start_from , $limit";  
-                        } 
+                    else if (isset($_GET['search']) || isset($_GET['user_query'])){
+                        $user_keyword = $_GET['user_query'];
+                        $limit = 8;  
+                    if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
+                        $page=1; 
+                    };  
+                    $start_from = ($page-1) * $limit;  
+                    $sql = "select * from products where status='product' and product_keywords like '%$user_keyword%' LIMIT $start_from , $limit";  
+                    } 
                         
                     // Get All Record
+                    else {
+                        $limit = 8;  
+                    if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
+                        $page=1; 
+                    };  
+                    $start_from = ($page-1) * $limit;  
+                    $sql = "SELECT * FROM products where status='product' LIMIT $start_from , $limit";  
+                    }
+                    $rs_result = mysqli_query($con, $sql);
+                    if ( mysqli_num_rows($rs_result) == 0) {
+                        echo '<h1 style="margin-left: 15%;">Products will be added soon!</h1>';
+                    }
                         else {
-                            $limit = 8;  
-                        if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { 
-                            $page=1; 
-                        };  
-                        $start_from = ($page-1) * $limit;  
-                        $sql = "SELECT * FROM products where status='product' LIMIT $start_from , $limit";  
-                        }
-                        $rs_result = mysqli_query($con, $sql);
-                        while ($row = mysqli_fetch_array($rs_result)) {  
+                            while ($row = mysqli_fetch_array($rs_result)) {  
                         ?>
                     <div class='col-sm-3'>
                         
@@ -144,7 +148,8 @@ include("pagination/function.php");
                         
                     </div>
                     <?php       
-                            }
+                            } 
+                        }
                         ?>
                 </div>
                 <div class="col-md-12">
