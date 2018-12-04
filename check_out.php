@@ -212,7 +212,7 @@ include("functions/functions.php");
               <button name="submit" class="btn btn-default btn_process_ck">
               PAYPAL
               </button> &nbsp; &nbsp;&nbsp; 
-              <a href="payment_options.php" class="btn btn-default btn_process_ck">
+              <a href="pay_u/PayUMoney_form.php" class="btn btn-default btn_process_ck">
               PAY U
               </a>
             </div>  ';
