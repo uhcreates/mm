@@ -21,21 +21,20 @@ $customer_id = $row_customer['customer_id'];
 
 
         
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"><!-- form Starts -->
+<!-- <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 
 
-<input type="hidden" name="business" value="saady@gmail.com">
+<input type="hidden" name="business" value="slokchavhan9@gmail.com">
 
 <input type="hidden" name="cmd" value="_cart">
 
 <input type="hidden" name="upload" value="1">
 
-<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="currency_code" value="USD"> -->
 
-<input type="hidden" name="return" value="http://localhost/mm/paypal_order.php?c_id=<?php echo $customer_id; ?>">
+<!-- <input type="hidden" name="return" value="http://localhost/mm/paypal_order.php?c_id=<?php echo $customer_id; ?>"> -->
 
-
-<input type="hidden" name="cancel_return" value="http://localhost/mm/index.php">
+<!-- <input type="hidden" name="cancel_return" value="http://localhost/mm/index.php"> -->
 
 
 <?php
@@ -82,8 +81,15 @@ $i++;
 
 
 <?php } ?>
+<!-- <input type="image" name="submit" width="500" height="270" src="images/paypal.png" > -->
 
-<input type="image" name="submit" width="500" height="270" src="images/paypal.png" >
-
-
+<div class="order_btn_contain_1">
+<!-- name="submit" -->
+<a href="paypal_order.php?c_id=<?php echo $customer_id; ?>" class="btn btn-default btn_process_ck">
+    PAYPAL
+    </a> &nbsp; &nbsp;&nbsp; 
+    <a href="pay_u/PayUMoney_form.php" class="btn btn-default btn_process_ck">
+    PAY U
+    </a>
+</div> 
 </form><!-- form Ends -->

@@ -49,7 +49,7 @@ $insert_customer_order = "insert into customer_orders (customer_id,due_amount,in
 
 $run_customer_order = mysqli_query($con,$insert_customer_order);
 
-$insert_pending_order = "insert into pending_orders (customer_id,invoice_no,product_id,qty,size,order_status) values ('$customer_id','$invoice_no','$pro_id','$pro_qty','$pro_size','$status')";
+$insert_pending_order = "insert into pending_orders (customer_id,invoice_no,product_id,qty,size,order_status) values ('$customer_id','$invoice_no','$product_id','$pro_qty','$pro_size','$status')";
 
 $run_pending_order = mysqli_query($con,$insert_pending_order);
 
@@ -59,7 +59,7 @@ $run_delete = mysqli_query($con,$delete_cart);
 
 echo "<script>alert('Your order has been submitted,Thanks ')</script>";
 
-echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
+echo "<script>window.open('customer/myaccount.php?my_orders','_self')</script>";
 
 
 
