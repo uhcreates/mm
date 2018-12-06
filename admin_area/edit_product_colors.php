@@ -25,14 +25,15 @@ $row_edit = mysqli_fetch_array($run_edit);
 
 $id = $row_edit['id'];
 
-$p_id = $row_edit['product_id'];
+$product_id = $row_edit['product_id'];
 
 $image = $row_edit['images'];
 
-$sample_image = $row_edit['sample_image'];
+// $sample_image = $row_edit['sample_image'];
 
+$default_sample_image = $row_edit['sample_image'];
 
-$get_product = "select * from products where product_id='$p_id'";
+$get_product = "select * from products where product_id='$product_id'";
 
 $run_product = mysqli_query($con,$get_product);
 
@@ -199,14 +200,15 @@ var total_file=document.getElementById("upload_file").files.length;
           <input type="file" name="sample_image" id="upload_sample" onchange="preview_sample();" class="form-control" required >
         </div>
         <div id="sample_preview" class="col-md-2">
-        <img id='element' src='product_images/variety/sample/<?php echo $sample_image ?>' />
+        <img id='element' src='product_images/variety/sample/<?php echo $default_sample_image ?>' />
+        <input type="hidden" name="default_sample" value="<?php echo $default_sample_image?>"/>
         </div>
       </div><!-- form-group Ends -->
       <hr style="border-bottom: 1px solid #3c3c3c;">
       <div class="form-group" ><!-- form-group Starts -->
         <label class="col-md-3 control-label" > Select Multiple Images </label>
         <div class="col-md-6" >
-          <input type="file" name="images[]" multiple id="upload_file" onchange="preview_image();" class="form-control" required >
+        <input type="file" name="images[]"  multiple id="upload_file" onchange="preview_image();" class="form-control" required >
         </div>
       </div><!-- form-group Ends -->
       <div id="image_preview" class="col-md-offset-3">
@@ -250,7 +252,8 @@ var total_file=document.getElementById("upload_file").files.length;
 
 if(isset($_POST['update'])){
 
-$id = $_POST['id'];
+$product_id = $_POST['product_id'];
+$default_sample = $_POST['default_sample'];
 $sample_image = $_FILES['sample_image']['name'];
 $temp_sample = $_FILES['sample_image']['tmp_name'];
 move_uploaded_file($temp_sample,"product_images/variety/sample/".$sample_image);
@@ -261,7 +264,7 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
   $images = $_FILES['images']['name'][$i];
   move_uploaded_file($temp_images,"product_images/variety/".$images);
 
-  $update_product_colors = "update product_color set images='$images', sample_image ='$sample_image' where product_id ='$product_id'";
+  $update_product_colors = " update product_color set images='$images', sample_image ='$sample_image' where  sample_image ='$default_sample'";
   $run_product_colors = mysqli_query($con,$update_product_colors);
  }
 

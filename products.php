@@ -29,7 +29,23 @@ include("pagination/function.php");
     <link rel="stylesheet" href="css/Pe-icon-7-stroke.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <style>
+    #sample_preview {
+    /* height: 50px;
+    weight: 50px; */
+    position: relative;
+    }
+    #sample_preview img {
+        /* height: 100%;
+        weight: auto; */
+        height: 25px;
+        width: 25px;
+        display: inline;
+        object-fit: none;
+        border-radius: 50%;
+    
+    }
+    </style>
 
 </head>
 
@@ -134,20 +150,31 @@ include("pagination/function.php");
                     }
                         else {
                             while ($row = mysqli_fetch_array($rs_result)) {  
+                                $prod_id = $row['product_id'];
                         ?>
                     <div class='col-sm-3'>
                         
                         <div class='p_container'>
                             <div class='p_img'>
-                                <a href='product_detail.php?pro_id=<?php echo  $row['product_id']?>'><img src='admin_area/product_images/<?php echo $row["product_img1"]?>'></a>
+                                <a href='product_detail.php?pro_id=<?php echo  $row['product_id']?>'><img src='admin_area/product_images/<?php echo $row['product_img1'] ?>'></a>
                                 <div class='overlay'>COLORS
                                     <div class='p_colors'>
-                                        <span class='c_black'></span>
-                                        <span class='c_brown'></span>
-                                        <span class='c_golden'></span>
+                                    <?php 
+                                    $query = "select * from product_color where product_id = $prod_id group by sample_image order by id";
+                                    $run_query = mysqli_query($con,$query);
+                                    while ( $out = mysqli_fetch_array($run_query)) { 
+                                            $sample_image = $out['sample_image']; ?>
+                                        <!-- class='c_black' -->
+                                        <span id="sample_preview">
+                                            <a href='product_detail.php?pro_id=<?php echo  $row['product_id']?>&color=<?php echo  $out['sample_image']?>'>
+                                                <img width="100%" height="100%" src="admin_area/product_images/variety/sample/<?php echo $out['sample_image']?>"/>
+                                            </a>
+                                        </span>
+                                        <?php } ?>
+                                        <!-- <span class='c_black'></span>
+                                        <span class='c_golden'></span> -->
                                     </div>
                                 </div>
-        
                             </div>
                             <div class='p_sub_d'>
                                 <p><?php echo $row["product_label"] ?></p>
@@ -175,7 +202,7 @@ include("pagination/function.php");
                         $total_pages = ceil($total_records / $limit);  
                         $pagLink = "<div class='pagination justify-content-center'>";  
                         for ($i=1; $i<=$total_pages; $i++) {  
-                                    $pagLink .= "<a class='page-link' href='products.php?cat_id=".$_GET['cat_id']."&page=".$i."'>".$i."</a>";  
+                                    $pagLink .= "<a class='page-link' href='products.php?cat_id=".$_GET['cat_idz']."&page=".$i."'>".$i."</a>";  
                         };  
                         echo $pagLink . "</div>";   
                     }

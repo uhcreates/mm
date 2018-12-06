@@ -225,7 +225,7 @@ if($run_product_colors){
 
 echo "<script>alert('Product has been inserted successfully')</script>";
 
-echo "<script>window.open('index.php?view_product_colors','_self')</script>";
+// echo "<script>window.open('index.php?view_product_colors','_self')</script>";
 
 }
 

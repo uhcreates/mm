@@ -18,7 +18,23 @@
     <link rel="stylesheet" href="css/Pe-icon-7-stroke.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
-
+    <style>
+    #sample_preview {
+    /* height: 50px;
+    weight: 50px; */
+    position: relative;
+    }
+    #sample_preview img {
+        /* height: 100%;
+        weight: auto; */
+        height: 25px;
+        width: 25px;
+        display: inline;
+        object-fit: none;
+        border-radius: 50%;
+    
+    }
+    </style>
 
 </head>
 
@@ -39,58 +55,53 @@
                 $product_id = @$_GET['pro_id'];
                 $q =  "SELECT * FROM products WHERE product_id = $product_id";
                 $query = mysqli_query($con,  $q);
-                while ($result = mysqli_fetch_array($query)){
-            
+                while ($result = mysqli_fetch_array($query)) {
+                    $product_title = $result['product_title'];
+                    $product_price = $result['product_price'];
+                    $product_desc = $result['product_desc'];
+                }
                 ?>
         <div class="row single_pdct">
             <div class="col-sm-8">
                 <div class="row">
+                <?php 
+                if (isset($_GET['color']))
+                {
+                    $sample_image = @$_GET['color'];
+                    $query = "select * from product_color where product_id = $product_id and sample_image = '$sample_image'";
+                }   else {
+                    $query = "select * from product_color where product_id =$product_id limit 0,4";
+                }
+                    $run_query = mysqli_query($con,$query);
+                    while ( $out = mysqli_fetch_array($run_query)) { 
+                            $images = $out['images']; ?>
                     <div class="col-sm-6">
                         <div class="img_container">
-                            <a href="#"><img src="admin_area/product_images/<?php echo $result['product_img1'] ?>" alt="product 1"></a>
+                            <a href="#"><img src="admin_area/product_images/<?php echo $images?>" alt="product 1"></a>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="admin_area/product_images/<?php echo $result['product_img2'] ?>" alt="product 2"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="admin_area/product_images/<?php echo $result['product_img3'] ?>" alt="product 3"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="admin_area/product_images/<?php echo $result['product_img4'] ?>" alt="product 4"></a>
-                        </div>
-                    </div>
-                    <!-- <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="img/products/wallet/wallet-1.jpg" alt="product 2"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="img/products/wallet/wallet-1.jpg" alt="product 3"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="img_container">
-                            <a href="#"><img src="img/products/wallet/wallet-1.jpg" alt="product 4"></a>
-                        </div>
-                    </div> -->
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="single_ph">
-                    <p><?php echo $result['product_title'] ?> </p>
-                    <p class="price"> <?php echo $result['product_price'] ?><span> INR</span></p>
+                    <p><?php echo $product_title ?> </p>
+                    <p class="price"> <?php echo $product_price ?><span> INR</span></p>
                 </div>
                 <div class="single_pc">
-                    <a href="#"><span class="c_black"></span></a>
-                    <a href="#"><span class="c_brown"></span></a>
-                    <a href="#"><span class="c_golden"></span></a>
+                <?php 
+                    $query = "select * from product_color where product_id = $product_id group by sample_image order by id";
+                    $run_query = mysqli_query($con,$query);
+                    while ( $out = mysqli_fetch_array($run_query)) { 
+                            $sample_image = $out['sample_image']; ?>
+                    <span id="sample_preview">
+                        <a href='product_detail.php?pro_id=<?php echo  $product_id ?>&color=<?php echo  $out['sample_image']?>'>
+                            <img width="100%" height="100%" src="admin_area/product_images/variety/sample/<?php echo $out['sample_image']?>"/>
+                        </a>
+                    </span>
+                    <!-- <a href="#"><span class="c_brown"></span></a>
+                    <a href="#"><span class="c_golden"></span></a> -->
+                    <?php } ?>
                 </div>
                 <div class="single_size">
                     <p>FIT FOR ALL SIZE</p>
@@ -112,7 +123,7 @@
                             </div>
                             <div id="collapseOne" class="collapse">
                                 <div class="card-body">
-                                    <?php echo $result['product_desc'] ?>
+                                    <?php echo $product_desc ?>
                                 </div>
                             </div>
                         </div>
@@ -163,9 +174,6 @@
                 </div>
             </div>
         </div>
-        <?php 
-            }
-        ?>
     </div>
 
     <!-- footer start -->
