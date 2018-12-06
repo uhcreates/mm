@@ -363,15 +363,22 @@ include("customer_delete.php");
 }
 
 
-if(isset($_GET['view_orders'])){
+if(isset($_GET['view_order'])){
 
-include("view_orders.php");
+include("view_order.php");
 
 }
 
 if(isset($_GET['order_delete'])){
 
 include("order_delete.php");
+
+}
+
+if(isset($_GET['invoice_no'])){
+
+$invoice_no = $_GET['invoice_no'];
+include("order_details.php");
 
 }
 

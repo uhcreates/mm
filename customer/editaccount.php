@@ -16,11 +16,15 @@ $customer_email = $row_customer['customer_email'];
 
 $customer_country = $row_customer['customer_country'];
 
+$customer_state = $row_customer['customer_state'];
+
 $customer_city = $row_customer['customer_city'];
 
 $customer_contact = $row_customer['customer_contact'];
 
 $customer_address = $row_customer['customer_address'];
+
+$pincode = $row_customer['pincode'];
 
 $customer_image = $row_customer['customer_image'];
 
@@ -42,10 +46,16 @@ $customer_image = $row_customer['customer_image'];
                 <input type="text" class="form-control" value="<?php echo $customer_country; ?>" name="c_country" required  placeholder="Customer Country">
             </div>
             <div class="form-group col-md-12">
+                <input type="text" value="<?php echo $customer_state; ?>" class="form-control" name="c_state" required  placeholder="Customer State">
+            </div>
+            <div class="form-group col-md-12">
                 <input type="text" value="<?php echo $customer_city; ?>" class="form-control" name="c_city" required  placeholder="Customer City">
             </div>
             <div class="form-group col-md-12">
                 <input type="text" value="<?php echo $customer_contact; ?>" class="form-control" name="c_contact" required  placeholder="Customer Contact">
+            </div>
+            <div class="form-group col-md-12">
+                <input type="number" value="<?php echo $pincode; ?>" class="form-control" name="c_pincode" required  placeholder="Customer Pincode">
             </div>
             <div class="form-group col-md-12">
                 <input type="file" name="c_image" class="form-control" required ><br>
@@ -70,11 +80,17 @@ $customer_image = $row_customer['customer_image'];
 
     $c_country = $_POST['c_country'];
 
+    $c_state = $_POST['c_state'];
+
+
     $c_city = $_POST['c_city'];
 
     $c_contact = $_POST['c_contact'];
 
     $c_address = $_POST['c_address'];
+
+    $c_pincode = $_POST['c_pincode'];
+
 
     $c_image = $_FILES['c_image']['name'];
 
@@ -82,7 +98,7 @@ $customer_image = $row_customer['customer_image'];
 
     move_uploaded_file($c_image_tmp,"customer_images/$c_image");
 
-    $update_customer = "update customers set customer_name='$c_name',customer_email='$c_email',customer_country='$c_country',customer_city='$c_city',customer_contact='$c_contact',customer_address='$c_address',customer_image='$c_image' where customer_id='$update_id'";
+    $update_customer = "update customers set customer_name='$c_name',customer_email='$c_email',customer_country='$c_country',customer_state='$c_state',customer_city='$c_city',customer_contact='$c_contact',customer_address='$c_address',pincode='$c_pincode',customer_image='$c_image' where customer_id='$update_id'";
 
     $run_customer = mysqli_query($con,$update_customer);
 

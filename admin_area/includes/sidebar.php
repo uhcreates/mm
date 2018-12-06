@@ -694,7 +694,7 @@ else {
 
 <li>
 
-<a href="index.php?view_orders">
+<a href="index.php?view_order">
 
 <i class="fa fa-fw fa-list"></i> View Orders
 

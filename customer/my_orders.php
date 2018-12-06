@@ -31,9 +31,8 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 <th>Qty:</th>
 <th>Size:</th>
 <th>Order Date:</th>
-<th>Paid/Unpaid:</th>
-<th>Status:</th>
-
+<th style="text-align: center;">Paid/Unpaid:</th>
+<!-- <th>Status:</th> -->
 
 </tr>
 
@@ -104,11 +103,11 @@ $order_status = "Paid";
 
 <td><?php echo $order_date; ?></td>
 
-<td><?php echo $order_status; ?></td>
+<td style="text-align: center;"><?php echo $order_status; ?></td>
 
-<td>
+<!-- <td>
 <a href="confirm.php?order_id=<?php echo $order_id; ?>" target="blank" class="btn btn-primary btn-sm" > Confirm If Paid </a>
-</td>
+</td> -->
 
 
 </tr><!-- tr Ends -->
