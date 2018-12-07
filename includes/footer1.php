@@ -35,7 +35,7 @@
                 <div class="footer_lks">
                     <div class="h5">Company</div>
                     <div class="f_links">
-                        <a href="#">History of Brand</a> <br>
+                        <a href="#">About Us</a> <br>
                         <a href="#">Inditex</a> <br>
                         <a href="#">Values/CSR</a> <br>
                         <a href="#">Work with Us</a> <br>

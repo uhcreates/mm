@@ -92,8 +92,10 @@ if(!isset($_SESSION['admin_email'])){
                 $customer_name = $result['customer_name'];
                 $customer_email = $result['customer_email'];
                 $customer_city = $result['customer_city'];
+                $customer_state = $result['customer_state'];
                 $customer_country = $result['customer_country'];
                 $customer_address = $result['customer_address'];
+                $pincode = $result['pincode'];
                 $customer_contact = $result['customer_contact'];
 
 
@@ -104,10 +106,12 @@ if(!isset($_SESSION['admin_email'])){
             <p class="example-screen">Email:   <a href="mailto: <?php echo $customer_email ?>"><?php echo $customer_email ?></a></p> 
             <p class="example-print">Email:   <?php echo $customer_email ?></p> 
             <p>City:    <?php echo $customer_city ?></p> 
+            <p>State:    <?php echo $customer_state ?></p>
             <p>Country: <?php echo $customer_country ?></p> 
             <p>Address: <?php echo $customer_address ?></p> 
+            <p>Pincode: <?php echo $pincode ?></p> 
             <p class="example-screen">Contact: <a href="tel: <?php echo $customer_contact ?>"><?php echo $customer_contact ?></a></p> 
-            <p class="example-print">Contact: <?php echo $customer_contact ?>"><?php echo $customer_contact ?></p> 
+            <p class="example-print">Contact: <?php echo $customer_contact ?></p> 
         </div>
         <div class="col-md-6">
             <div class="row">
@@ -184,7 +188,7 @@ if(!isset($_SESSION['admin_email'])){
     
     <div class="row">
         <div class="col-md-6 example-screen">
-            <a href="admin_area/index.php?view_order" class="btn btn-light black-background white" style="float: right;">VIEW OTHERS</a>
+            <a href="index.php?view_order" class="btn btn-light black-background white" style="float: right;">VIEW OTHERS</a>
         </div>
         <div class="col-md-6 example-screen">
             <button type="button" onclick="window.print();return false;" class="btn btn-light black-background white" style="float: left;">PRINT</button>
