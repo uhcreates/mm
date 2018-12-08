@@ -65,7 +65,7 @@
                     <a class="nav-link" href="#" >My Orders</a>
                 </li> -->
                 <li class="nav-item" id="basket_link">
-                    <a class="nav-link" href="#">My Basket</a>
+                    <a class="nav-link" href="#"> Cart</a>
                 </li>
             </ul>
 
@@ -89,10 +89,10 @@
             $query = mysqli_query($con,$select_cart);
             $count = mysqli_num_rows($query); ?>
           <i class='pe-7s-shopbag'></i>&nbsp;<span class='count_of_item'><?php echo $count ?></span>
-          <h6>BASKET</h6>
+          <h6>Cart</h6>
         </div>     
         <div class="basket_nav_pd">
-          <div class="row pd_bas_row">
+          <div class="row pd_bas_row">s
           <?php 
           
             $ip_add = getRealUserIp();

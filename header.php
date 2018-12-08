@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+header<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
         <!-- Brand -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
                     <a class="nav-link" href="#" >My Orders</a>
                 </li> -->
                 <li class="nav-item" id="basket_link">
-                    <a class="nav-link" href="#">My Basket</a>
+                    <a class="nav-link" href="#">Cart</a>
                 </li>
             </ul>
 
@@ -89,7 +89,7 @@
             $query = mysqli_query($con,$select_cart);
             $count = mysqli_num_rows($query); ?>
           <i class='pe-7s-shopbag'></i>&nbsp;<span class='count_of_item'><?php echo $count ?></span>
-          <h6>BASKET</h6>
+          <h6>Cart</h6>
         </div>     
         <div class="basket_nav_pd">
           <div class="row pd_bas_row">
