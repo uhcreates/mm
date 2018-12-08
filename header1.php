@@ -21,7 +21,7 @@
                         $command = "select * from product_categories where cat_id =". $res['cat_id']."";
                         $productQuery = mysqli_query($con,$command);
                         while ( $result = mysqli_fetch_array($productQuery)) {
-                        ?>
+                        ?> 
                         
                         <a class="dropdown-item" href="products.php?product_cat_id=<?php echo $result['p_cat_id']?>"><?php echo  $result['p_cat_title'] ?></a>
                         <?php  
@@ -33,13 +33,13 @@
                     ?>
                 </li>
             </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a  href="#"> 
-                        <img src="images/logo.jpg" alt="merecerlogo"  height="auto" width="130px">
+            <!-- <ul class="navbar-nav" id="desklogo">
+                <li class="nav-item"> -->
+                    <a  href="#" id="unik"> 
+                        <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
                     </a>
-                </li>
-            </ul>
+                <!-- </li>
+            </ul> -->
             <ul class="navbar-nav ml-auto nav_txt_r">
             <li class="nav-item">
                 <a class="nav-link" href="#search"><span class="pe-7s-search"></span> Search

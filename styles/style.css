@@ -844,6 +844,14 @@ width:90%;
 }
 
 
+@media only screen and (max-width: 812px) {
+
+  nav #collapsibleNavbar a img {
+    display: none !important;
+  }
+}
+
+
 
 
 

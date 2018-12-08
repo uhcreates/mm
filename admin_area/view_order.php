@@ -116,7 +116,7 @@ $i++;
 <td><?php echo $i; ?></td>
 
 <td bgcolor="yellow" >
-    <a href="order_details.php?invoice_no=<?php echo $invoice_no; ?>"><?php echo $invoice_no; ?></
+    <a href="order_details.php?invoice_no=<?php echo $invoice_no; ?>"><?php echo $invoice_no; ?></a>
 </td>
 
 

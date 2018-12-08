@@ -6,8 +6,13 @@ $(function() {
     var st = $(this).scrollTop();
 
     if (st > lastScrollTop) {
+      // $navbar.animate({"height": "50px","max-height":"50px"},20);
+
       $navbar.addClass("bg_color");
+
     } else {
+      // $navbar.animate({"height": "80px","max-height":"80px"},50);
+
       $navbar.removeClass("bg_color");
     }
   });
@@ -39,3 +44,19 @@ $(document).ready(function() {
     $(".panel").css("box-shadow", "none");
   });
 });
+
+// brand Change
+$(function(){
+   $(window).scroll(function(){
+     if($(this).scrollTop()>10){
+      $("#collapsibleNavbar a img").attr("src","images/8.png").css({"height":"50px", "width": "50px", "padding": "10%"});
+    }
+    else {
+      $("#collapsibleNavbar a img").attr("src","images/default.png").css({"height":"100%", "width": "100%", "padding": "0px"});    
+    }
+    })
+});
+
+
+
+
