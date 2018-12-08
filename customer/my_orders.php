@@ -1,4 +1,5 @@
 
+
 <center><!-- center Starts -->
 
 <h1>My Orders</h1>
@@ -26,8 +27,8 @@ If you have any questions, please feel free to <a href="../contact.php" > contac
 <tr>
 
 <th>O N:</th>
-<th>Due Amount:</th>
 <th>Invoice No:</th>
+<th>Due Amount:</th>
 <th>Qty:</th>
 <th>Size:</th>
 <th>Order Date:</th>
@@ -93,9 +94,11 @@ $order_status = "Paid";
 
 <th><?php echo $i; ?></th>
 
+<td><a href="order_details.php?invoice_no=<?php echo $invoice_no; ?>"><?php echo $invoice_no; ?></a></td>
+
 <td>$<?php echo $due_amount; ?></td>
 
-<td><?php echo $invoice_no; ?></td>
+
 
 <td><?php echo $qty; ?></td>
 

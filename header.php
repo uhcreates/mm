@@ -12,7 +12,7 @@
                         while ( $res = mysqli_fetch_array($query)) {
                         ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link" href="" id="navbardrop" data-toggle="dropdown">
                     
                         <?php echo $res['cat_title'] ?>
                     </a>

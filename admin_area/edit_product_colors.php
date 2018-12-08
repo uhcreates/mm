@@ -200,8 +200,8 @@ var total_file=document.getElementById("upload_file").files.length;
           <input type="file" name="sample_image" id="upload_sample" onchange="preview_sample();" class="form-control" required >
         </div>
         <div id="sample_preview" class="col-md-2">
-        <img id='element' src='product_images/variety/sample/<?php echo $default_sample_image ?>' />
-        <input type="hidden" name="default_sample" value="<?php echo $default_sample_image?>"/>
+        <img id='element' src='product_images/variety/sample/<?php echo $default_sample_image; ?>' />
+        <input type="hidden" name="default_sample" value="<?php echo $default_sample_image; ?>"/>
         </div>
       </div><!-- form-group Ends -->
       <hr style="border-bottom: 1px solid #3c3c3c;">
@@ -259,6 +259,7 @@ $temp_sample = $_FILES['sample_image']['tmp_name'];
 move_uploaded_file($temp_sample,"product_images/variety/sample/".$sample_image);
 
 
+
 for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
   $temp_images = $_FILES['images']['tmp_name'][$i];
   $images = $_FILES['images']['name'][$i];
@@ -266,6 +267,12 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
 
   $update_product_colors = " update product_color set images='$images', sample_image ='$sample_image' where  sample_image ='$default_sample'";
   $run_product_colors = mysqli_query($con,$update_product_colors);
+
+
+
+  
+
+
  }
 
 
@@ -273,9 +280,9 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
 
 if($run_product_colors){
 
-echo "<script>alert('Product image has been updated successfully')</script>";
+//echo "<script>alert('Product image has been updated successfully')</script>";
 
-echo "<script>window.open('index.php?view_product_colors','_self')</script>";
+//echo "<script>window.open('index.php?view_product_colors','_self')</script>";
 
 }
 
