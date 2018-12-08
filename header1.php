@@ -92,7 +92,8 @@
           <h6>Cart</h6>
         </div>     
         <div class="basket_nav_pd">
-          <div class="row pd_bas_row">s
+          <div class="row pd_bas_row">
+            
           <?php 
           
             $ip_add = getRealUserIp();
@@ -134,7 +135,7 @@
             
         <div>
 
-          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">GO TO BASKET</a>
+          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">Cart</a>
 
 
         </div>

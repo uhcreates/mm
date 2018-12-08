@@ -134,7 +134,7 @@ header<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
             
         <div>
 
-          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">GO TO BASKET</a>
+          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">Cart</a>
 
 
         </div>
