@@ -58,5 +58,16 @@ $(function(){
 });
 
 
+function myVisible() {
+  var x = document.getElementById("c_pass_confirm");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+
 
 
