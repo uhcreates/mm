@@ -115,7 +115,7 @@ if ($gClient->getAccessToken()) {
                     <button type="submit" class="btn btn-danger google_sin_btn">Google Sign In</button>
                 </div>
                 <div class="sign_up_link">
-                    <a href="#">Don't have account ? Sign Up</a>
+                    <a href="signup.php">Don't have account ? Sign Up</a>
                 </div>
             </div>
         </form>

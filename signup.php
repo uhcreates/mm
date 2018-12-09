@@ -59,7 +59,7 @@ include("functions/functions.php");
                         <input type="text" class="form-control" name="c_country" id="c_country" placeholder="Customer Country">
                     </div>
                     <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="c_state" id="c_state" placeholder="Customer state">
+                        <input type="text" class="form-control" name="c_state" id="c_state" placeholder="Customer state">
                     </div>
                     <div class="form-group col-md-6">
                             <input type="text" class="form-control" name="c_city" id="c_city" placeholder="Customer City">
@@ -297,7 +297,7 @@ $headers .= "Content-type: text/html\r\n";
 
 mail($c_email,$subject,$message,$headers);
 
-$insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country, customer_state, customer_city,customer_contact,customer_address, pincode, customer_image,customer_ip,customer_confirm_code) values ('$c_name','$c_email','$c_pass','$c_country', '$c_state','$c_city','$c_contact','$c_address', '$pincode','$c_image','$c_ip','$customer_confirm_code')";
+$insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country, customer_state, customer_city,customer_contact,customer_address, pincode, customer_image,customer_ip,customer_confirm_code) values ('$c_name','$c_email','$c_pass','$c_country','$c_state','$c_city','$c_contact','$c_address', '$pincode','$c_image','$c_ip','$customer_confirm_code')";
 
 
 $run_customer = mysqli_query($con,$insert_customer);
@@ -314,7 +314,7 @@ $_SESSION['customer_email']=$c_email;
 
 echo "<script>alert('You have been Registered Successfully')</script>";
 
-echo "<script>window.open('checkout.php','_self')</script>";
+echo "<script>window.open('check_out.php','_self')</script>";
 
 }else{
 
