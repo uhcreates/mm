@@ -20,6 +20,11 @@
 .navbar-light .navbar-nav .show > .nav-link {
   color: #0f0f0f;
 }
+
+.bg-light {
+  background-color:white !important;
+}
+
 .dropdown-item {
   font-size: 12px;
   letter-spacing: 1px;
@@ -510,18 +515,12 @@ textarea {
   outline: none;
   padding: 10px;
 }
-
-#search .close {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  opacity: 1;
-  font-size: 27px;
-  color: rgb(22, 22, 22);
-}
-
-#search .close:hover {
-  color: rgb(22, 22, 22);
+#search .cls_btn{
+  font-size:60px;
+  color:black;
+  position:fixed;
+  top:80px;
+  right:20px;
   cursor: pointer;
 }
 /* pop-up code */
@@ -860,3 +859,4 @@ select{
   padding:.375rem .75rem;
 
 }
+
