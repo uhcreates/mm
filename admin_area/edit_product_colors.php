@@ -17,7 +17,7 @@ if(isset($_GET['edit_product_colors'])) {
 
 $edit_color_id = $_GET['edit_product_colors'];
 
-$get_p = "select * from product_color where id='$edit_color_id'"; 
+$get_p = "select * from product_color where sample_image='$edit_color_id'"; 
 
 $run_edit = mysqli_query($con,$get_p);
 
@@ -29,7 +29,7 @@ $product_id = $row_edit['product_id'];
 
 $image = $row_edit['images'];
 
-// $sample_image = $row_edit['sample_image'];
+$sample_image = $row_edit['sample_image'];
 
 $default_sample_image = $row_edit['sample_image'];
 
@@ -113,10 +113,10 @@ function preview_image()
 
 var total_file=document.getElementById("upload_file").files.length;
  if (total_file <= 4) {
-    if ($('#image_preview').has('#item').length) {
-        $('#item').replaceWith("");
+    if ($('#image_preview').has('#items').length) {
+        $('#items').replaceWith("");
         for(var i=0;i<total_file;i++) {
-        $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;");
+          $('#image_preview').append("<div id='items'><img id='item' src='"+URL.createObjectURL(event.target.files[i])+"'>&nbsp;</div>");
 
         } 
     }
@@ -208,11 +208,22 @@ var total_file=document.getElementById("upload_file").files.length;
       <div class="form-group" ><!-- form-group Starts -->
         <label class="col-md-3 control-label" > Select Multiple Images </label>
         <div class="col-md-6" >
-        <input type="file" name="images[]"  multiple id="upload_file" onchange="preview_image();" class="form-control" required >
+        <input type="file" name="images[]" multiple id="upload_file" onchange="preview_image();" class="form-control" required >
         </div>
       </div><!-- form-group Ends -->
       <div id="image_preview" class="col-md-offset-3">
-        <img id="item" src="product_images/variety/<?php echo $image ?>"/>
+        <div id="items">
+          <?php 
+          $get = "select * from product_color where sample_image='$edit_color_id'"; 
+
+          $run = mysqli_query($con,$get);
+          $arr = array();
+          while($row= mysqli_fetch_array($run)){
+            array_push($arr,$row['id']);
+            echo '<img id="item" src="product_images/variety/'.$row['images'].'"/>';
+          }
+          ?>
+        </div>
       </div>
 
 
@@ -253,7 +264,7 @@ var total_file=document.getElementById("upload_file").files.length;
 if(isset($_POST['update'])){
 
 $product_id = $_POST['product_id'];
-$default_sample = $_POST['default_sample'];
+// $default_sample = $_POST['default_sample'];
 $sample_image = $_FILES['sample_image']['name'];
 $temp_sample = $_FILES['sample_image']['tmp_name'];
 move_uploaded_file($temp_sample,"product_images/variety/sample/".$sample_image);
@@ -265,24 +276,19 @@ for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
   $images = $_FILES['images']['name'][$i];
   move_uploaded_file($temp_images,"product_images/variety/".$images);
 
-  $update_product_colors = " update product_color set images='$images', sample_image ='$sample_image' where  sample_image ='$default_sample'";
+  $update_product_colors = "update product_color set images='$images', sample_image ='$sample_image' where id in ('$arr[$i]')";
   $run_product_colors = mysqli_query($con,$update_product_colors);
-
-
-
-  
-
-
  }
+
 
 
 
 
 if($run_product_colors){
 
-//echo "<script>alert('Product image has been updated successfully')</script>";
+echo "<script>alert('Product image has been updated successfully')</script>";
 
-//echo "<script>window.open('index.php?view_product_colors','_self')</script>";
+echo "<script>window.open('index.php?view_product_colors','_self')</script>";
 
 }
 

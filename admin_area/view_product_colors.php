@@ -57,7 +57,7 @@ else {
 <thead>
 
 <tr>
-<th> ID</th>
+<!-- <th> ID</th> -->
 <th>Product Title</th>
 <th> Product ID</th>
 
@@ -82,7 +82,7 @@ else {
 $get_pro = "Select products.product_title,product_color.*
 from product_color
 left join products 
-on product_color.product_id = products.product_id";
+on product_color.product_id = products.product_id group by product_color.sample_image";
 
 $run_pro = mysqli_query($con,$get_pro);
 
@@ -106,16 +106,26 @@ $sample_image = $row_pro['sample_image'];
 
 <tr>
 
-<td><?php echo $id; ?></td>
+<!-- <td><?php echo $id; ?></td> -->
 
 <td><?php echo $pro_title; ?></td>
 
 <td><?php echo $product_id; ?></td>
 
-<td><img src="product_images/<?php echo $images; ?>" width="60" height="60"></td>
+<td>
+    <?php 
+    
+    $getty = "select images from product_color where sample_image ='".$sample_image."'";
+
+    $run_getty = mysqli_query($con,$getty);
+    while($rowsy = mysqli_fetch_array($run_getty)){
+        echo '<img src="product_images/variety/'.$rowsy['images'].'" width="60" height="60">';
+     }
+    ?>
+</td>
 
 
-<td><img src="product_images/<?php echo $sample_image; ?>" width="60" height="60"></td>
+<td><img src="product_images/variety/sample/<?php echo $sample_image; ?>" width="60" height="60"></td>
 
 
 
@@ -123,7 +133,7 @@ $sample_image = $row_pro['sample_image'];
 
 <td>
 
-<a href="index.php?delete_product_colors=<?php echo $id; ?>">
+<a href="index.php?delete_product_colors=<?php echo $sample_image; ?>">
 
 <i class="fa fa-trash-o"> </i> Delete
 
@@ -133,7 +143,7 @@ $sample_image = $row_pro['sample_image'];
 
 <td>
 
-<a href="index.php?edit_product_colors=<?php echo $id; ?>">
+<a href="index.php?edit_product_colors=<?php echo $sample_image; ?>">
 
 <i class="fa fa-pencil"> </i> Edit Image
 
