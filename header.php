@@ -1,4 +1,4 @@
-header<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+<nav class="navbar navbar-expand-sm bg-light  bg-custom navbar-light fixed-top">
         <!-- Brand -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -75,7 +75,8 @@ header<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
     <div id="search">
       <span class="close">X</span>
       <form role="search" id="searchform"  method="get" action="products.php?user_query='<?php echo $_GET["user_query"] ?>'">
-        <input value="" name="user_query" type="search" placeholder="Type To Search" />
+        
+      <input value="" name="user_query" type="search" placeholder="Type To Search" />
       </form>
     </div>
     <div class="panel-wrap" >

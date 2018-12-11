@@ -68,6 +68,9 @@ function myVisible() {
 }
 
 
-
-
+$(document).ready(function() {
+  $('#search .cls_btn').click(function(){
+    $('#search').removeClass('open');
+  });
+});
 

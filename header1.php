@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top" style="background-color:white;">
         <!-- Brand -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -73,10 +73,14 @@
     </nav>
     <!-- navbar end -->
     <div id="search">
-      <span class="close">X</span>
       <form role="search" id="searchform"  method="get" action="products.php?user_query='<?php echo $_GET["user_query"] ?>'">
         <input value="" name="user_query" type="search" placeholder="Type To Search" />
       </form>
+      <div class="cls_btn">
+          <a>
+              <i class="pe-7s-close"></i>
+          </a>
+      </div>
     </div>
     <div class="panel-wrap" >
       <div class="panel">
