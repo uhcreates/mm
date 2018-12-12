@@ -49,10 +49,10 @@ $(document).ready(function() {
 $(function(){
    $(window).scroll(function(){
      if($(this).scrollTop()>10){
-      $("#collapsibleNavbar a img").attr("src","images/8.png").css({"height":"50px", "width": "50px", "padding": "10%"});
+      $("#collapsibleNavbar a img").attr("src","images/logo.png");
     }
     else {
-      $("#collapsibleNavbar a img").attr("src","images/default.png").css({"height":"100%", "width": "100%", "padding": "0px"});    
+      $("#collapsibleNavbar a img").attr("src","images/default.png");    
     }
     })
 });
