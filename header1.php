@@ -36,7 +36,7 @@
             <!-- <ul class="navbar-nav" id="desklogo">
                 <li class="nav-item"> -->
                     <a  href="#" id="unik"> 
-                        <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
+                        <img src="images/default.png" alt="merecerlogo"  height="40px" width="40px">
                     </a>
                 <!-- </li>
             </ul> -->

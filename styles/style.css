@@ -716,8 +716,31 @@ body {
   .services .col-md-4 {
     margin-left: 2%;
 
-    width: 46%;
-  }
+.unik img{
+  width:50px;
+  height:auto;
+}
+
+
+@media(max-width: 1000px){
+
+.services .col-md-4 {
+
+margin-left:2%;
+
+width:46%;
+
+}
+
+}
+
+
+@media(max-width: 800px){
+
+.services .col-md-4 {
+
+width:90%;
+
 }
 
 @media (max-width: 800px) {

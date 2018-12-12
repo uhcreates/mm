@@ -170,11 +170,12 @@ include("functions/functions.php");
               } else  {
                 echo ($out = $discount['value']);
               }
+              $amount = $final_cost - $out;
               ?>/-</td>
             </tr>
             <tr>
               <td class="total_ck">Total</td>
-              <td class="total_rs">RS. <?php echo ($final_cost - $out) ?></td>
+              <td class="total_rs">RS. <?php echo $amount ?></td>
             </tr>
             <?php } ?>
           </tbody>
@@ -186,14 +187,80 @@ include("functions/functions.php");
           if (!isset($_SESSION['customer_email'])) {
               echo  '<a href="login_new.php" class="btn btn-default btn_process_ck">LOGIN </a>';
           } else {
-            echo  '<a href="payment_options.php" class="btn btn-default btn_process_ck">
-            PROCESS ORDER
-            </a> ';
+            echo  '<a href="payment_options.php" id="paypal-button"></a>';
           }
           ?>
         </div>
       </div> 
     </div>
+    
+
+    <script type="text/javascript">
+      // Create a request variable and assign a new XMLHttpRequest object to it.
+      var request = new XMLHttpRequest();
+      var calculated;
+      // Open a new connection, using the GET request on the URL endpoint
+      request.open('GET', 'http://www.apilayer.net/api/live?access_key=bcd2bd07117e7f60517f323ca37c5728&format=1', true);
+
+      request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        var curr = data.quotes.USDINR;
+        var inr = <?php echo $amount ?>;
+        calculated = inr/curr;
+        calculated = +calculated.toFixed(2);
+        // var ele = document.getElementById("val");
+        // ele.value = calculated;
+        }
+      
+
+      // Send request
+      request.send();
+    </script>
+    <!-- <div id="paypal-button"></div> -->
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'AZt6GYdc8ZbP90pyxr43dX43lZPHBKWKSofEMECIaF9BceJVXEY_DG8lVpQB3cQhR33x37u_W5sBgpNN',
+      production: 'AW1wmNC5HehCqxvwcY67vo_vnXgYlofOSR7UACssFrh6CWGoyVFGVQeFV2RfmmMJ-3xxMhYctRIjo8Dh'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'medium',
+      // color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: calculated,
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        console.log(data);
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
 
     <hr>
 
