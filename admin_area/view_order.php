@@ -208,6 +208,4 @@ echo $order_status='Complete';
 </div><!-- col-lg-12 Ends -->
 
 </div><!-- 2 row Ends -->
-
-
 <?php } ?>

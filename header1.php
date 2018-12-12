@@ -35,7 +35,7 @@
             </ul>
             <!-- <ul class="navbar-nav" id="desklogo">
                 <li class="nav-item"> -->
-                    <a  href="#" id="unik"> 
+                    <a  href="index.php" id="unik"> 
                         <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
                     </a>
                 <!-- </li>
@@ -139,7 +139,7 @@
             
         <div>
 
-          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">Cart</a>
+          <a href="check_out.php" class="btn btn-default baskt_btn" role="button" style="text-decoration:none;">Cart</a>
 
 
         </div>

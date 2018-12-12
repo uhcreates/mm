@@ -1,31 +1,16 @@
  <!-- footer starts -->
        <div class="container-fluid footer_bg">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="subscribe_news">
-                    <h6>SUBSCRIBE TO NEWSLETTER</h6>
-                    <form action="">
-                        <div class="input-group subscribe_form">
-                            <input type="email" class="form-control" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text news_btn">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
+       
         <div class="row">
             <div class="col-sm-3">
                 <div class="footer_lks">
                     <div class="h5">Help</div>
                     <div class="f_links">
-                        <a href="#">Frequently Asked Questions</a> <br>
-                        <a href="#">How to Purchase</a> <br>
-                        <a href="#">Exchange and returns</a> <br>
+                        
+                        <!-- <a href="#">How to Purchase</a> <br> -->
+                        <a href="exc.php">Exchange and returns</a> <br>
                         <a href="#">Payments</a> <br>
-                        <a href="contact.html">Contact</a> <br>
+                        <a href="contact.html">Contact</a><br>
                     </div>
                 </div>
 
@@ -35,8 +20,10 @@
                     <div class="h5">Company</div>
                     <div class="f_links">
                         <a href="#">About Us</a> <br>
-                        <a href="#">Work with Us</a> <br>
-                        <a href="#">Privacy Policy</a> <br>
+                        <a href="tos.php" target="_blank">Term of Service</a><br>
+                       
+                        <a href="privacypolicy.php">Privacy Policy</a> <br>
+                        
                     </div>
                 </div>
 
@@ -55,12 +42,17 @@
 
             </div>
             <div class="col-sm-3">
-                <div class="footer_lks">
-                    <div class="h5">DOWNLOAD OUR APP</div>
-                    <div class="f_links">
-                        <a href="#">IOS</a> <br>
-                        <a href="#">ANDROID</a>
-                    </div>
+               
+                <div class="subscribe_news">
+                    <h6>SUBSCRIBE TO NEWSLETTER</h6>
+                    <form action="">
+                        <div class="input-group subscribe_form">
+                            <input type="email" class="form-control" placeholder="Your Email" >
+                            <div class="input-group-append">
+                                <button type="submit" class="input-group-text news_btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
             </div>

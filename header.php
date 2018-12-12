@@ -135,7 +135,7 @@
             
         <div>
 
-          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">Cart</a>
+          <a href="check_out.php" class="btn btn-default baskt_btn" role="button" >Cart</a>
 
 
         </div>
