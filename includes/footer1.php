@@ -19,7 +19,7 @@
                 <div class="footer_lks">
                     <div class="h5">Company</div>
                     <div class="f_links">
-                        <a href="#">About Us</a> <br>
+                        <a href="about.php">About Us</a> <br>
                         <a href="tos.php" target="_blank">Term of Service</a><br>
                        
                         <a href="privacypolicy.php">Privacy Policy</a> <br>

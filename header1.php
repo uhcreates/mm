@@ -35,9 +35,13 @@
             </ul>
             <!-- <ul class="navbar-nav" id="desklogo">
                 <li class="nav-item"> -->
-                    <a  href="index.php" id="unik">
+                            <nav >
+                               <a class="navbar-brand" href="index.php" id="unik"><img src="images/default.png" alt="merecerlogo"  height="100%" width="100%"></a>
+                            </nav>
+
+                    <!-- <a class="navbar-brand"  href="index.php" id="unik">
                         <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
-                    </a>
+                    </a> -->
                 <!-- </li>
             </ul> -->
             <ul class="navbar-nav ml-auto nav_txt_r">
