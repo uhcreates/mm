@@ -95,10 +95,10 @@ if ($gClient->getAccessToken()) {
     <?php 
     include("header1.php"); 
     ?>
-    <div class="container login_container">
+    <div class="container login_container ">
         <h1 class="login-txt">Login</h1>
-        <form method="post">
-            <div class="form-row">
+        <form method="post" class="text-center">
+            <div class="form-row col-md-12">
                 <!-- <div class="form-group col-md-12">
                     <input type="text" class="form-control" name="user_name" id="user_name" placeholder="User Name or Email Address">
                 </div> -->
@@ -114,7 +114,7 @@ if ($gClient->getAccessToken()) {
                 <div class="col-md-12 login_btn">
                     <button type="submit" class="btn btn-danger google_sin_btn">Google Sign In</button>
                 </div>
-                <div class="sign_up_link">
+                <div class="col-md-12 sign_up_link">
                     <a href="signup.php">Don't have account ? Sign Up</a>
                 </div>
             </div>

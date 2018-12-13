@@ -22,7 +22,7 @@
 }
 
 .bg-light {
-  background-color:white !important;
+  background-color: white !important;
 }
 
 .dropdown-item {
@@ -30,7 +30,7 @@
   letter-spacing: 1px;
 }
 .dropdown-item:active {
-  background-color: #ffce65 !important;
+  background-color: black !important;
 }
 .navbar-light {
   background-color: white;
@@ -70,18 +70,23 @@
   padding: 50px;
 }
 .subscribe_form {
-  width: 40%;
+  width: 100%;
   margin: auto;
 }
 .subscribe_form input[type="email"] {
-  border: none;
-  border-bottom: 1px solid rgb(34, 34, 34);
-  box-shadow: none;
+  border: 2px solid black;
 }
 .news_btn {
-  background-color: transparent;
-  color: rgb(34, 34, 34);
+  background-color: black !important; /* Green */
   border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 1px solid black !important;
+  border-radius: 0px;
 }
 input:focus,
 select:focus,
@@ -92,6 +97,7 @@ button:focus {
 .footer_lks {
   width: 70%;
   margin: auto;
+  margin-top:50px;
   padding-bottom: 20px;
 }
 .footer_lks .h5 {
@@ -408,6 +414,7 @@ textarea {
 /*login start*/
 .login_container {
   width: 40%;
+  margin:auto;
   margin-top: 200px;
 }
 .Signup_container {
@@ -423,7 +430,7 @@ textarea {
 
 .login-txt {
   text-align: center;
-  margin: 50px;
+  margin: auto;
 }
 .login_btn,
 .google_login_btn,
@@ -444,7 +451,7 @@ textarea {
   border-radius: 0px;
   width: 250px !important;
   background-color: black;
-  margin: 10px;
+  margin-bottom:10px;
   color: white;
 }
 .google_sin_btn {
@@ -515,12 +522,12 @@ textarea {
   outline: none;
   padding: 10px;
 }
-#search .cls_btn{
-  font-size:60px;
-  color:black;
-  position:fixed;
-  top:80px;
-  right:20px;
+#search .cls_btn {
+  font-size: 60px;
+  color: black;
+  position: fixed;
+  top: 80px;
+  right: 20px;
   cursor: pointer;
 }
 /* pop-up code */
@@ -772,8 +779,14 @@ p:last-child {
   padding-bottom: 14px;
   font-size: 15px;
   border-radius: 0px;
-  background-color: #ffce65;
-  color: black;
+  background-color:black;
+  color: white;
+  text-decoration: none;
+}
+
+ .baskt_btn:hover {
+
+  color:white;
 }
 
 /* checkout page */
@@ -845,18 +858,54 @@ p:last-child {
 }
 .logo_market {
   padding: 20px;
-  margin:25px;
+  margin: 25px;
 }
-select{
-  border:none !important;
-  background:transparent;
+select {
+  border: none !important;
+  background: transparent;
 }
-.mk_img_contain img{
-  width:100%;
-  margin-bottom:250px;
+.mk_img_contain img {
+  width: 100%;
+  margin-bottom: 250px;
 }
-.mk_t{
-  padding:.375rem .75rem;
+.mk_t {
+  padding: 0.375rem 0.75rem;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  margin-bottom: 50px;
+  line-height: 1.25;
+  color: white !important;
+  background-color: black !important;
+  border: 1px solid #dee2e6;
+}
+
+@media screen and (max-width:568px) and (min-width:320px){
+
+  .header_logo img{
+    width:50%;
+    margin:auto;
+  }
+  .login_container {
+    width: 100%;
+    margin-top: 200px;
+  }
+  .login-txt {
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width:568px) and (min-width:320px){
+
+  .login-txt {
+    margin-bottom: 10px;
+  }
+
 
 }
+
 

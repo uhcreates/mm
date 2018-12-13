@@ -70,8 +70,8 @@ include("functions/functions.php");
                     <div class="form-group col-md-6">
                         <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Pin Code">
                     </div>
-                    <div class="col-md-12" align="center">
-                        <div class="g-recaptcha" data-sitekey="6Lc-WxYUAAAAAFUhTFfBEzLGmEgRXHHdsD4ECvIC"></div>
+                    <div class="form-group col-md-6">
+                        <div class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6Lc-WxYUAAAAAFUhTFfBEzLGmEgRXHHdsD4ECvIC" ></div>
 
                     </div>
                     <div class="col-md-12 login_btn">

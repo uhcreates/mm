@@ -6,37 +6,37 @@
         <!-- Links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
-                    <?php 
+                    <?php
                         $q = "select * from categories where showInMenu = 1";
                         $query = mysqli_query($con,$q);
                         while ( $res = mysqli_fetch_array($query)) {
                         ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown" data-hover="dropdown">
-                    
+
                         <?php echo $res['cat_title'] ?>
                     </a>
                     <div class="dropdown-menu">
-                    <?php 
+                    <?php
                         $command = "select * from product_categories where cat_id =". $res['cat_id']."";
                         $productQuery = mysqli_query($con,$command);
                         while ( $result = mysqli_fetch_array($productQuery)) {
-                        ?> 
-                        
+                        ?>
+
                         <a class="dropdown-item" href="products.php?product_cat_id=<?php echo $result['p_cat_id']?>"><?php echo  $result['p_cat_title'] ?></a>
-                        <?php  
+                        <?php
                             }
                         ?>
                     </div>
-                    <?php  
+                    <?php
                 }
                     ?>
                 </li>
             </ul>
             <!-- <ul class="navbar-nav" id="desklogo">
                 <li class="nav-item"> -->
-                    <a  href="#" id="unik"> 
-                        <img src="images/default.png" alt="merecerlogo"  height="40px" width="40px">
+                    <a  href="index.php" id="unik">
+                        <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
                     </a>
                 <!-- </li>
             </ul> -->
@@ -86,26 +86,26 @@
       <div class="panel">
         <div class="checkout_cancel_btn"><i class="pe-7s-close"></i></div>
         <div class="shopping_bag_cont">
-        <?php 
-          
+        <?php
+
             $ip_add = getRealUserIp();
             $select_cart = "select * from cart where ip_add='$ip_add'";
             $query = mysqli_query($con,$select_cart);
             $count = mysqli_num_rows($query); ?>
           <i class='pe-7s-shopbag'></i>&nbsp;<span class='count_of_item'><?php echo $count ?></span>
           <h6>Cart</h6>
-        </div>     
+        </div>
         <div class="basket_nav_pd">
           <div class="row pd_bas_row">
-            
-          <?php 
-          
+
+          <?php
+
             $ip_add = getRealUserIp();
             $select_cart = "select * from cart where ip_add='$ip_add'";
             $query = mysqli_query($con,$select_cart);
             $count = mysqli_num_rows($query);
             while($row = mysqli_fetch_array($query)) {
-          
+
             $select_pro = "select * from products where product_id=".$row['product_id']." and status='product'";
             $q_pro = mysqli_query($con, $select_pro);
             while ($res = mysqli_fetch_array($q_pro)) {
@@ -128,18 +128,18 @@
             <div class="col-sm-2">
             <div style="font-size: 30px; right: 5px; cursor: pointer;">
                 <a style="text-decoration:none;" href="delete_basket_item.php?product_id=<?php echo $row['product_id']?>"><i class="pe-7s-less"></i></a>
-            </div>  
+            </div>
             </div>
             <?php } ?>
             <?php } ?>
           </div>
           <hr />
-          
+
         </div>
-            
+
         <div>
 
-          <a href="check_out.php" class="btn btn-default baskt_btn" role="button">Cart</a>
+          <a href="check_out.php" class="btn btn-default baskt_btn" role="button" style="text-decoration:none;">Cart</a>
 
 
         </div>

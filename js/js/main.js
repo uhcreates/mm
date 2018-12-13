@@ -49,7 +49,7 @@ $(document).ready(function() {
 $(function(){
    $(window).scroll(function(){
      if($(this).scrollTop()>10){
-      $("#collapsibleNavbar a img").attr("src","images/8.png");
+      $("#collapsibleNavbar a img").attr("src","images/logo.png");
     }
     else {
       $("#collapsibleNavbar a img").attr("src","images/default.png");    
