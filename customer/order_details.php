@@ -121,6 +121,7 @@ if(!isset($_SESSION['customer_email'])){
                     }else {
                         echo "<button class='btn btn-danger'>UN-PAID</button>";
                     }
+                    $sum_arr = array();
                 ?>
                 </div>
             </div>
@@ -163,15 +164,27 @@ if(!isset($_SESSION['customer_email'])){
                     <td><?php echo $product_qty ?></td>
                     <td><?php 
                         $total += $per_product;
-                        echo  ($per_product )
+                        array_push($sum_arr, $per_product);
+                        echo  ($per_product );
                         ?></td>
                 </tr>   
                 <?php } ?>
+                <!-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <h4>Discount : <?php echo $due_amount ?></h4>
+                    </td>
+                </tr> -->
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><h4>Grand Total : <?php echo $due_amount ?></h4></td>
+                    <?php
+                    $paid = array_sum($sum_arr);
+                    ?>
+                    <td><h4>Grand Total : <?php echo $paid ?></h4></td>
                 </tr>
             </tbody>
         </table>
