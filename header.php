@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-sm bg-light  bg-custom navbar-light fixed-top">
         <!-- Brand -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -55,7 +56,7 @@
                             echo "<a  class='nav-link' href='login_new.php'> Login </a>";
                         }   else {
                             // echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['first_name'] ."</a>";
-                            echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['customer_email'] ."</a>";
+                            echo "<a  class='btn btn-dark btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['customer_email'] ."</a>";
 
                         }
 

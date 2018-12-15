@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="css/Pe-icon-7-stroke.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+      type="text/javascript"
+    ></script>
     <style>
     #sample_preview {
     /* height: 50px;
@@ -77,7 +81,7 @@
                             $images = $out['images']; ?>
                     <div class="col-sm-6">
                         <div class="img_container">
-                            <a href="#"><img src="admin_area/product_images/<?php echo $images?>" alt="product 1"></a>
+                            <a href="#" data-toggle="modal" data-target="#fsModal"><img src="admin_area/product_images/<?php echo $images?>" alt="product 1"></a>
                         </div>
                     </div>
                     <?php } ?>
@@ -177,92 +181,83 @@
     </div>
 
     <!-- footer start -->
-    <div class="container-fluid footer_bg">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="subscribe_news">
-                    <h6>SUBSCRIBE TO NEWSLETTER</h6>
-                    <form action="">
-                        <div class="input-group subscribe_form">
-                            <input type="email" class="form-control" placeholder="Your Email">
-                            <div class="input-group-append">
-                                <button type="submit" class="input-group-text news_btn">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<?php
 
+include('includes/footer1.php');
+?>
+
+
+
+    <!-- footer ends -->
+
+<!-- modal -->
+<div
+      id="fsModal"
+      class="modal animated bounceIn"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <!-- dialog -->
+      <div class="modal-dialog">
+        <!-- content -->
+        <div class="modal-content">
+          <!-- header -->
+          <!--
+            <div class="modal-header">
+              <h1 id="myModalLabel" class="modal-title">Modal title</h1>
             </div>
+          -->
+          <!-- header -->
+
+          <!-- body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-1">
+                <div class="thumbnail_contain">
+                  <a href="#">
+                    <img src="img/products/wallet/wallet-4.jpg" alt="img" />
+                  </a>
+                </div>
+                <div class="thumbnail_contain">
+                  <a href="#">
+                    <img src="img/products/wallet/wallet-4.jpg" alt="img" />
+                  </a>
+                </div>
+                <div class="thumbnail_contain">
+                  <a href="#">
+                    <img src="img/products/wallet/wallet-4.jpg" alt="img" />
+                  </a>
+                </div>
+                <div class="thumbnail_contain">
+                  <a href="#">
+                    <img src="img/products/wallet/wallet-4.jpg" alt="img" />
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-11">
+                <div class="img_full_contain">
+                  <img src="admin_area/product_images/<?php echo $images?>" alt="img full" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- body -->
+
+          <!-- footer -->
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">
+              close
+            </button>
+          </div>
+          <!-- footer -->
         </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="footer_lks">
-                    <div class="h5">Help</div>
-                    <div class="f_links">
-                        <a href="#">Frequently Asked Questions</a> <br>
-                        <a href="#">How to Purchase</a> <br>
-                        <a href="#">Transport and delivery</a> <br>
-                        <a href="#">Exchange and returns</a> <br>
-                        <a href="#">Payments</a> <br>
-                        <a href="contact.html">Contact</a> <br>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-sm-3">
-                <div class="footer_lks">
-                    <div class="h5">Company</div>
-                    <div class="f_links">
-                        <a href="#">History of Brand</a> <br>
-                        <a href="#">Inditex</a> <br>
-                        <a href="#">Values/CSR</a> <br>
-                        <a href="#">Work with Us</a> <br>
-                        <a href="#">Press Offices</a> <br>
-                        <a href="#">Privacy Policy</a> <br>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-sm-3">
-                <div class="footer_lks">
-                    <div class="h5">Follow</div>
-                    <div class="f_links">
-                        <a href="#">Facebook</a> <br>
-                        <a href="#">Twitter</a> <br>
-                        <a href="#">Youtube</a> <br>
-                        <a href="#">Pinterest</a> <br>
-                        <a href="#">Instagram</a> <br>
-                        <a href="#">Newsletter</a> <br>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-sm-3">
-                <div class="footer_lks">
-                    <div class="h5">DOWNLOAD OUR APP</div>
-                    <div class="f_links">
-                        <a href="#">IOS</a> <br>
-                        <a href="#">ANDROID</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-10">
-                <a href="#" class="f_change">Change Market</a>
-            </div>
-            <div class="col-sm-2">
-                <a href="#" class="cntry justify-content-end">IN</a>
-            </div>
-        </div>
+        <!-- content -->
+      </div>
+      <!-- dialog -->
     </div>
-
-
-
-
-
+    <!-- modal -->
     <script src="js/js/jquery-3.3.1.min.js"></script>
     <script src="js/js/popper.js"></script>
     <script src="js/js/bootstrap.min.js"></script>

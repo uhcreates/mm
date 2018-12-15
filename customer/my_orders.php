@@ -96,7 +96,7 @@ $order_status = "Paid";
 
 <td><a href="order_details.php?invoice_no=<?php echo $invoice_no; ?>"><?php echo $invoice_no; ?></a></td>
 
-<td>$<?php echo $due_amount; ?></td>
+<td><?php echo $due_amount; ?> INR</td>
 
 
 

@@ -9,15 +9,22 @@ include("includes/db.php");
 
 include("functions/functions.php");
 
-// $session_email = $_SESSION['customer_email'];
+$session_email = $_SESSION['customer_email'];
 
-// $select_customer = "select * from customers where customer_email='$session_email'";
+$select_customer = "select * from customers where customer_email='$session_email'";
 
-// $run_customer = mysqli_query($con,$select_customer);
+$run_customer = mysqli_query($con,$select_customer);
 
-// $row_customer = mysqli_fetch_array($run_customer);
+$row_customer = mysqli_fetch_array($run_customer);
 
-// $customer_id = $row_customer['customer_id'];
+$customer_id = $row_customer['customer_id'];
+
+$customer_name = $row_customer['customer_name'];
+
+$customer_email = $row_customer['customer_email'];
+
+$customer_contact = $row_customer['customer_contact'];
+
 
 ?>
 
@@ -60,6 +67,7 @@ include("functions/functions.php");
       </div>
       <div class="row">
         <?php
+        $pro_arr = array();
           $ip_add = getRealUserIp();
           $select_cart = "select * from cart where ip_add='$ip_add'";
           $query = mysqli_query($con,$select_cart);
@@ -68,11 +76,13 @@ include("functions/functions.php");
           $qty = $row['qty'];
           $_SESSION['qty'] = $qty;
           $product_id = $row['product_id'];
+
           $_SESSION['product_id'] = $product_id;
           $select_pro = "select * from products where product_id=".$row['product_id']." and status='product'";
           $q_pro = mysqli_query($con, $select_pro);
           while ($res = mysqli_fetch_array($q_pro)) {
             $p_id = $res['product_id'];
+            array_push($pro_arr, $p_id);
             $price = $res['product_price'];
           ?>
         <div class="col-sm-2" style="padding-bottom: 2%;">
@@ -183,17 +193,23 @@ include("functions/functions.php");
         </table>
         <?php } ?>
         <div class="order_btn_contain_1">
-         <?php 
+         <?php
           if (!isset($_SESSION['customer_email'])) {
               echo  '<a href="login_new.php" class="btn btn-default btn_process_ck">LOGIN </a>';
           } else {
-            echo  '<a href="payment_options.php" id="paypal-button"></a>';
+            echo  '<a href="payment_options.php" id="paypal-button"></a> <br> 
+            <a href="payu/index.php?php='?> <?php echo $amount ?> <?php echo'"><img style="padding: 0px 5% 5% 0px;" src="payu/images/payumoney.png" /></a>
+            ';
+            
           }
           ?>
+
+
         </div>
-      </div> 
+      </div>
     </div>
     
+
 
     <script type="text/javascript">
       // Create a request variable and assign a new XMLHttpRequest object to it.
@@ -213,11 +229,13 @@ include("functions/functions.php");
         // var ele = document.getElementById("val");
         // ele.value = calculated;
         }
-      
+
 
       // Send request
       request.send();
     </script>
+
+
     <!-- <div id="paypal-button"></div> -->
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script>
@@ -256,13 +274,14 @@ include("functions/functions.php");
         console.log(data);
         // Show a confirmation message to the buyer
         window.alert('Thank you for your purchase!');
+        window.location.href = "paypal_order.php?c_id=<?php echo $customer_id; ?>";
       });
     }
   }, '#paypal-button');
 
 </script>
 
-    <hr>
+    <!-- <hr> -->
 
     <script src="js/js/jquery-3.3.1.min.js"></script>
     <script src="js/js/popper.js"></script>

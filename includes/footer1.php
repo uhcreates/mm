@@ -10,7 +10,7 @@
                         <!-- <a href="#">How to Purchase</a> <br> -->
                         <a href="exc.php">Exchange and returns</a> <br>
                         <a href="#">Payments</a> <br>
-                        <a href="contact.html">Contact</a><br>
+                        <a href="contact1.php">Contact</a><br>
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
                 <div class="footer_lks">
                     <div class="h5">Company</div>
                     <div class="f_links">
-                        <a href="#">About Us</a> <br>
+                        <a href="about.php">About Us</a> <br>
                         <a href="tos.php" target="_blank">Term of Service</a><br>
                        
                         <a href="privacypolicy.php">Privacy Policy</a> <br>

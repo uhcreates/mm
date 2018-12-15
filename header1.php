@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top" style="background-color:white;">
         <!-- Brand -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -35,9 +36,13 @@
             </ul>
             <!-- <ul class="navbar-nav" id="desklogo">
                 <li class="nav-item"> -->
-                    <a  href="index.php" id="unik">
+                            <nav >
+                               <a class="navbar-brand" href="index.php" id="unik"><img src="images/default.png" alt="merecerlogo"  height="100%" width="100%"></a>
+                            </nav>
+
+                    <!-- <a class="navbar-brand"  href="index.php" id="unik">
                         <img src="images/default.png" alt="merecerlogo"  height="100%" width="100%">
-                    </a>
+                    </a> -->
                 <!-- </li>
             </ul> -->
             <ul class="navbar-nav ml-auto nav_txt_r">
@@ -55,7 +60,7 @@
                             echo "<a  class='nav-link' href='login_new.php'> Login </a>";
                         }   else {
                             // echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['first_name'] ."</a>";
-                            echo "<a  class='btn btn-success btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['customer_email'] ."</a>";
+                            echo "<a  class='btn btn-dark btn-sm nav-link' style='color: white;' href='logout.php'> Welcome, " . $_SESSION['customer_email'] ."</a>";
 
                         }
 
