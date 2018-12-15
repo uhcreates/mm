@@ -133,7 +133,10 @@ if ($gClient->getAccessToken()) {
                 <div class='carousel-item active'>
 
                 <a href='$slide_url'><img src='admin_area/slides_images/$slide_image' class='img_responsive'></a>
-
+                <div class='carousel-caption'>
+                <h3>EXUDING PANACHE WORLDWIDE</h3>
+                <p>GENUINO LEATHER</p>
+                 </div>
                 </div>
 
                 ";
@@ -159,7 +162,10 @@ if ($gClient->getAccessToken()) {
                 <div class='carousel-item'>
 
                 <a href='$slide_url'><img src='admin_area/slides_images/$slide_image' class='img_responsive'></a>
-
+                <div class='carousel-caption'>
+                <h3>EXUDING PANACHE WORLDWIDE</h3>
+                <p>GENUINO LEATHER</p>
+                 </div>
                 </div>
 
                 ";

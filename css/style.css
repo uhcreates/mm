@@ -56,6 +56,18 @@
 .home_sec {
   margin-bottom: 50px;
 }
+.carousel-caption {
+  color: #ffce65;
+  position: absolute;
+  top: 40%;
+}
+.carousel-caption h3 {
+  font-size: 2.5em;
+  font-weight: 600;
+}
+.carousel-caption p {
+  font-size: 1.8em;
+}
 .explore_bg {
   margin-bottom: 50px;
 }
