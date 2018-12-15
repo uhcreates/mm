@@ -10,7 +10,7 @@
                         <!-- <a href="#">How to Purchase</a> <br> -->
                         <a href="exc.php">Exchange and returns</a> <br>
                         <a href="#">Payments</a> <br>
-                        <a href="contact.html">Contact</a><br>
+                        <a href="contact1.php">Contact</a><br>
                     </div>
                 </div>
 

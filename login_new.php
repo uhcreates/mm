@@ -127,6 +127,9 @@ if ($gClient->getAccessToken()) {
             $customer_pass = $_POST['c_pass'];
             $select_customer = "select * from customers where customer_email='$customer_email' AND customer_pass='$customer_pass'";
             $run_customer = mysqli_query($con,$select_customer);
+            while ( $out = mysqli_fetch_array($run_customer)) {
+                $first_name = $out['first_name'];
+            }
             $get_ip = getRealUserIp();
             $check_customer = mysqli_num_rows($run_customer);
             $select_cart = "select * from cart where ip_add='$get_ip'";
@@ -138,12 +141,14 @@ if ($gClient->getAccessToken()) {
             }
             if($check_customer==1 AND $check_cart==0){
             $_SESSION['customer_email']=$customer_email;
+           
             echo "<script>alert('You are Logged In')</script>";
             // echo "<script>window.open('customer/my_account.php?my_orders','_self')</script>";
             echo "<script>window.open('check_out.php','_self')</script>";
             }
             else {
             $_SESSION['customer_email']=$customer_email;
+            $_SESSION['customer_name'] =$customer_name;
             echo "<script>alert('You are Logged In')</script>";
             echo "<script>window.open('check_out.php','_self')</script>";
             }

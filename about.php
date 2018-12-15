@@ -22,6 +22,14 @@ include("functions/functions.php");
     <meta charset="utf-8">
     <meta name="google-site-verification" content="cfEtbhLPxNxhejLF5MDgsRMIq-hapjeFth9hFCvLsN4" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    * {
+      overflow-X: hidden;
+    }
+    </style>
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -36,11 +44,11 @@ include("functions/functions.php");
     <?php
     include("header1.php"); 
     ?>
-
+      
     <!-- about sec 1 -->
     <div class="cotainer-fluid about_bg1">
-      <div class="img_container">
-        <img src="images/about_bg1.jpg" alt="background image 1" />
+      <div class="img_container man-making-cont">
+        <img src="images/about_bg1.jpg" class="bg_leather-black" alt="background image 1" />
         <div class="caption_abt">
           <img src="images/abt_logo.png" alt="Merecer Melhor" class="logo" />
           <h1 class="c_name">MERECER MELHOR <sup>&trade;</sup></h1>
@@ -52,8 +60,8 @@ include("functions/functions.php");
     <div class="cotainer-fluid about_bg1">
       <div class="row">
         <div class="col-sm-12">
-          <div class="img_container">
-            <img src="images/about_bg2.jpg" alt="background image 1" />
+          <div class="img_container man-making-cont">
+            <img src="images/about_bg2.jpg" class="man-making" alt="background image 1" />
             <div class="caption_abt2">
               <p class="cursive_f">The present is bright...</p>
 
@@ -67,10 +75,10 @@ include("functions/functions.php");
       <div class="row">
         <div class="col-sm-12">
           <div class="img_container">
-            <img src="images/about_bg1.jpg" alt="background image 1" />
+            <img src="images/about_bg1.jpg" class="ht-full" alt="background image 1" />
             <div class="caption_abt3">
               <h1 class="abt_t">ABOUT US</h1>
-              <p>
+              <p class="abt-text">
                 The Brand is owned by Merecer Melhor Private Limited, having its
                 roots in Mumbai, India with operational offices in Australia and
                 United States of America. <br />
@@ -128,28 +136,28 @@ include("functions/functions.php");
             <div class="caption_abt3">
               <h1 class="abt_t">THE BUSINESS BOULEVARDS</h1>
               <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                   <h4>Retail</h4>
                   <p>
                     In selective stores of General and Modern Trade. Our own
                     flagship store is on its way.
                   </p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                   <h4>Ecommerce</h4>
                   <p>
                     Own Shopping Portal, (www.merecermelhor.com) and also at
                     Amazon, Flipkart, Myntra & Jabong
                   </p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                   <h4>Corporate Gifting</h4>
                   <p>
                     The dearth of prominent players in the Business essentials,
                     has helped the Brand in carving out a niche for itself.
                   </p>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-md-3 col-lg-3">
                   <h4>Exports</h4>
                   <p>
                     With operational offices in Australia and USA, the baby
