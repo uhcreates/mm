@@ -121,7 +121,6 @@ if ($gClient->getAccessToken()) {
         </form>
     </div> 
     <?php
-
         if(isset($_POST['login'])){
             $customer_email = $_POST['c_email'];
             $customer_pass = $_POST['c_pass'];

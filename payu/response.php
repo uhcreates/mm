@@ -10,7 +10,7 @@ $postdata = $_POST;
 $msg = '';
 if (isset($postdata ['key'])) {
 	$key				=   $postdata['key'];
-	$salt				=   $postdata['salt'];
+	// $salt				=   $postdata['salt'];
 	$txnid 				= 	$postdata['txnid'];
     $amount      		= 	$postdata['amount'];
 	$productInfo  		= 	$postdata['productinfo'];
@@ -19,25 +19,32 @@ if (isset($postdata ['key'])) {
 	$udf5				=   $postdata['udf5'];
 	$mihpayid			=	$postdata['mihpayid'];
 	$status				= 	$postdata['status'];
-	$resphash				= 	$postdata['hash'];
+	$resphash			= 	$postdata['hash'];
 	//Calculate response hash to verify	
 	$keyString 	  		=  	$key.'|'.$txnid.'|'.$amount.'|'.$productInfo.'|'.$firstname.'|'.$email.'|||||'.$udf5.'|||||';
 	$keyArray 	  		= 	explode("|",$keyString);
 	$reverseKeyArray 	= 	array_reverse($keyArray);
 	$reverseKeyString	=	implode("|",$reverseKeyArray);
-	$CalcHashString 	= 	strtolower(hash('sha512', $salt.'|'.$status.'|'.$reverseKeyString));
+	// $CalcHashString 	= 	strtolower(hash('sha512', $salt.'|'.$status.'|'.$reverseKeyString));
 	
 	
-	if ($status == 'success'  && $resphash == $CalcHashString) {
-		$msg = "Transaction Successful and Hash Verified...";
-		//Do success order processing here...
-	}
-	else {
-		//tampered or failed
-		$msg = "Payment failed for Hasn not verified...";
-	} 
+	// if ($status == 'success'  && $resphash == $CalcHashString) {
+	// 	$msg = "Transaction Successful and Hash Verified...";
+	// 	//Do success order processing here...
+	// }
+	// else {
+	// 	//tampered or failed
+	// 	$msg = "Payment failed for Hasn not verified...";
+	// } 
 }
 else exit(0);
+
+function getCallbackUrl()
+{
+	$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+	return $protocol . $_SERVER['HTTP_HOST'] . '/mm/customer/myaccount.php?my_orders';
+	// . $_SERVER['REQUEST_URI']
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -60,7 +67,7 @@ else exit(0);
 	}
 </style>
 <body>
-<div class="main">
+<!-- <div class="main">
 	<div>
     	<img src="images/payumoney.png" />
     </div>
@@ -122,15 +129,18 @@ else exit(0);
     <span class="text"><label>Message:</label></span>
     <span><?php echo $msg; ?></span>
     </div>
-</div>
+</div> -->
 
 
 <?php
 
-if(isset($_GET['c_id'])){
 
-$customer_id = $_GET['c_id'];
+$select_cust = "select * from customers where customer_email='$email'";
 
+$run_cust = mysqli_query($con,$select_cust);
+
+while($row_cust = mysqli_fetch_array($run_cust)){
+    $customer_id = $row_cust['customer_id'];
 }
 
 $ip_add = getRealUserIp();
@@ -177,7 +187,9 @@ $run_delete = mysqli_query($con,$delete_cart);
 
 echo "<script>alert('Your order has been submitted,Thanks ')</script>";
 
-echo "<script>window.open('customer/myaccount.php?my_orders','_self')</script>";
+// getCallbackUrl();
+
+echo "<script>window.open('../customer/myaccount.php?my_orders','_self')</script>";
 
 
 
