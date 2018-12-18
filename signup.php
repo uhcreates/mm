@@ -71,7 +71,8 @@ include("functions/functions.php");
                         <input type="text" class="form-control" name="pincode" id="pincode" placeholder="Pin Code">
                     </div>
                     <div class="form-group col-md-6">
-                        <div class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6Lc-WxYUAAAAAFUhTFfBEzLGmEgRXHHdsD4ECvIC" ></div>
+                        <!-- <div class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6Lc-WxYUAAAAAFUhTFfBEzLGmEgRXHHdsD4ECvIC" ></div> -->
+                        <div class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;" data-sitekey="6Lf8uIIUAAAAAO9HfcSA_hLGL4rJ0LDwmHr2aJ40" ></div>
 
                     </div>
                     <div class="col-md-12 login_btn">
@@ -219,7 +220,8 @@ if(val.length<=6)no=1;
 
 if(isset($_POST['register'])){
 
-$secret = "6Lc-WxYUAAAAAN5j2OdDsryWwGfREg5eeuZFpKMv";
+// $secret = "6Lc-WxYUAAAAAN5j2OdDsryWwGfREg5eeuZFpKMv";
+$secret = "6Lf8uIIUAAAAAKuhFonrsua8P-ytvgT9XKa8RL3L";   
 
 $response = $_POST['g-recaptcha-response'];
 
